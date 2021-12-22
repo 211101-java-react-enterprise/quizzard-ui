@@ -46,7 +46,8 @@ function LoginComponent(props: ILoginProps) {
             let principal = await authenticate({username: formData.username, password: formData.password});
             props.setCurrentUser(principal);
         } catch (e: any) {
-            setErrorMessage(e.response.data.message);
+            console.log(e);
+            // setErrorMessage(e);
         }
     }
 

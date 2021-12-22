@@ -15,11 +15,13 @@ export async function authenticate(credentials: Credentials) {
         throw resp.data;
     }
 
-    return resp.data;
+    return {
+        ...resp.data,
+        token: resp.headers['authorization']
+    };
 
 }
 
 export async function logout(setCurrentUser: (nextUser: Principal | undefined) => void) {
-    await quizzardClient.delete('/auth');
     setCurrentUser(undefined);
 }
