@@ -1,14 +1,13 @@
 import React from "react";
+import {Alert} from "@material-ui/lab";
 
 interface IErrorMessageProps {
-
+    errorMessage: string
 }
 
 function ErrorMessageComponent(props: IErrorMessageProps) {
     return (
-        <>
-            <h1>ErrorMessageComponent works!</h1>
-        </>
+        <Alert severity="error">{props.errorMessage}</Alert>
     );
 }
 
