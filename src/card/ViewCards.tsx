@@ -4,7 +4,7 @@ interface IViewCardsProps {
 
 }
 
-function ViewCardsComponent(props: IViewCardsProps) {
+function ViewCards(props: IViewCardsProps) {
     return (
         <>
             <h1>ViewCardsComponent works!</h1>
@@ -12,4 +12,4 @@ function ViewCardsComponent(props: IViewCardsProps) {
     );
 }
 
-export default ViewCardsComponent;
+export default ViewCards;

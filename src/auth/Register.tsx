@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {Principal} from "../common/models/principal";
 import {Button, FormControl, Input, InputLabel, makeStyles, Typography} from "@material-ui/core";
 import {Navigate, useNavigate} from "react-router-dom";
-import ErrorMessageComponent from "../common/components/ErrorMessageComponent";
+import ErrorMessage from "../common/components/ErrorMessage";
 import {registerUserAccount} from "../common/services/auth-service";
 
 interface IRegisterProps {
@@ -19,7 +19,7 @@ const useStyles = makeStyles({
     }
 });
 
-function RegisterComponent(props: IRegisterProps) {
+function Register(props: IRegisterProps) {
 
     const classes = useStyles();
     const navigate = useNavigate();
@@ -138,11 +138,11 @@ function RegisterComponent(props: IRegisterProps) {
 
                 <br/><br/>
 
-                { errorMessage ? <ErrorMessageComponent errorMessage={errorMessage}/> : <></> }
+                { errorMessage ? <ErrorMessage errorMessage={errorMessage}/> : <></> }
 
             </div>
 
     );
 }
 
-export default RegisterComponent;
+export default Register;

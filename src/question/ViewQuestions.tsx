@@ -4,7 +4,7 @@ interface IViewQuestionsProps {
 
 }
 
-function ViewQuestionsComponent(props: IViewQuestionsProps) {
+function ViewQuestions(props: IViewQuestionsProps) {
     return (
         <>
             <h1>ViewQuestionsComponent works!</h1>
@@ -12,4 +12,4 @@ function ViewQuestionsComponent(props: IViewQuestionsProps) {
     );
 }
 
-export default ViewQuestionsComponent;
+export default ViewQuestions;

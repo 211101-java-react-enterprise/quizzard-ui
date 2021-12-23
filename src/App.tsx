@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
 import { Route, Routes } from 'react-router-dom';
-import LoginComponent from "./auth/LoginComponent";
-import RegisterComponent from "./auth/RegisterComponent";
-import DashboardComponent from "./core/DashboardComponent";
-import NavbarComponent from "./common/components/NavbarComponent";
+import Login from "./auth/Login";
+import Register from "./auth/Register";
+import Dashboard from "./core/Dashboard";
+import Navbar from "./common/components/Navbar";
 import {Principal} from "./common/models/principal";
+import TakeQuiz from "./quiz/TakeQuiz";
+import QuizOverview from "./quiz/QuizOverview";
 
 function App() {
 
@@ -12,11 +14,13 @@ function App() {
 
     return (
         <>
-            <NavbarComponent currentUser={authUser} setCurrentUser={setAuthUser} />
+            <Navbar currentUser={authUser} setCurrentUser={setAuthUser} />
             <Routes>
-                <Route path="/login" element={<LoginComponent currentUser={authUser} setCurrentUser={setAuthUser} />}/>
-                <Route path="/register" element={<RegisterComponent currentUser={authUser} />}/>
-                <Route path="/dashboard" element={<DashboardComponent currentUser={authUser} />}/>
+                <Route path="/login" element={<Login currentUser={authUser} setCurrentUser={setAuthUser} />} />
+                <Route path="/register" element={<Register currentUser={authUser} />} />
+                <Route path="/dashboard" element={<Dashboard currentUser={authUser} />} />
+                <Route path="/take-quiz" element={<TakeQuiz />} />
+                <Route path="/about-quiz" element={<QuizOverview />} />
             </Routes>
         </>
     );

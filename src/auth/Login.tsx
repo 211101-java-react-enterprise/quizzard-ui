@@ -1,6 +1,6 @@
-import React, {useState} from "react";
+import React, {SyntheticEvent, useState} from "react";
 import {Principal} from "../common/models/principal";
-import ErrorMessageComponent from "../common/components/ErrorMessageComponent";
+import ErrorMessage from "../common/components/ErrorMessage";
 import {Button, FormControl, Input, InputLabel, makeStyles, Typography} from "@material-ui/core";
 import {Navigate} from "react-router-dom";
 import {authenticate} from "../common/services/auth-service";
@@ -19,7 +19,7 @@ const useStyles = makeStyles({
     }
 });
 
-function LoginComponent(props: ILoginProps) {
+function Login(props: ILoginProps) {
 
     const classes = useStyles();
 
@@ -35,7 +35,11 @@ function LoginComponent(props: ILoginProps) {
         setFormData({...formData, [name]: value});
     }
 
-    let login = async () => {
+    let login = async (e: SyntheticEvent) => {
+
+        if (e.type == 'keydown' && (e.nativeEvent as KeyboardEvent).code !== 'Enter') {
+            return;
+        }
 
         if (!formData.username || !formData.password) {
             setErrorMessage('You need to provide both a username and a password');
@@ -46,8 +50,7 @@ function LoginComponent(props: ILoginProps) {
             let principal = await authenticate({username: formData.username, password: formData.password});
             props.setCurrentUser(principal);
         } catch (e: any) {
-            console.log(e);
-            // setErrorMessage(e);
+            setErrorMessage(e);
         }
     }
 
@@ -73,6 +76,7 @@ function LoginComponent(props: ILoginProps) {
                 <FormControl margin="normal" fullWidth>
                     <InputLabel htmlFor="password">Password</InputLabel>
                     <Input
+                        onKeyDown={login}
                         onChange={handleChange}
                         id="password"
                         name="password"
@@ -92,11 +96,11 @@ function LoginComponent(props: ILoginProps) {
 
                 <br/><br/>
 
-                { errorMessage ? <ErrorMessageComponent errorMessage={errorMessage}/> : <></> }
+                { errorMessage ? <ErrorMessage errorMessage={errorMessage}/> : <></> }
             </div>
 
     );
 
 }
 
-export default LoginComponent;
+export default Login;

@@ -4,7 +4,7 @@ interface ICreateQuestionsProps {
 
 }
 
-function CreateQuestionComponent(props: ICreateQuestionsProps) {
+function CreateQuestion(props: ICreateQuestionsProps) {
     return (
         <>
             <h1>CreateQuestionComponent works!</h1>
@@ -12,4 +12,4 @@ function CreateQuestionComponent(props: ICreateQuestionsProps) {
     );
 }
 
-export default CreateQuestionComponent;
+export default CreateQuestion;

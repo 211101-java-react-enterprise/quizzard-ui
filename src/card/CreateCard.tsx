@@ -4,7 +4,7 @@ interface ICreateCardProps {
 
 }
 
-function CreateCardComponent(props: ICreateCardProps) {
+function CreateCard(props: ICreateCardProps) {
     return (
         <>
             <h1>CreateCardComponent works!</h1>
@@ -12,4 +12,4 @@ function CreateCardComponent(props: ICreateCardProps) {
     );
 }
 
-export default CreateCardComponent;
+export default CreateCard;

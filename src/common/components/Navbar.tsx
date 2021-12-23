@@ -9,7 +9,7 @@ interface INavbarProps {
     setCurrentUser: (nextUser: Principal | undefined) => void
 }
 
-function NavbarComponent(props: INavbarProps) {
+function Navbar(props: INavbarProps) {
 
     const navigate = useNavigate();
 
@@ -57,4 +57,4 @@ function NavbarComponent(props: INavbarProps) {
     );
 }
 
-export default NavbarComponent;
+export default Navbar;

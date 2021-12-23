@@ -5,10 +5,10 @@ interface IErrorMessageProps {
     errorMessage: string
 }
 
-function ErrorMessageComponent(props: IErrorMessageProps) {
+function ErrorMessage(props: IErrorMessageProps) {
     return (
         <Alert severity="error">{props.errorMessage}</Alert>
     );
 }
 
-export default ErrorMessageComponent;
+export default ErrorMessage;
