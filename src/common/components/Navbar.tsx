@@ -15,6 +15,7 @@ function Navbar(props: INavbarProps) {
 
     async function doLogout() {
         await logout(props.setCurrentUser);
+        navigate('login');
     }
 
     function goTo(route: string) {
